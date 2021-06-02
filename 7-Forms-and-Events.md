@@ -134,4 +134,152 @@ function handleSubmit(event) {
 form.addEventListener("submit", handleSubmit);
 ```
 
-# Posting FormData via Fetch API
+# Handling Input Elements
+
+```js
+
+<form name="example">
+  <input type="text" name="myInput" value="Hello">
+</form>
+;
+```
+
+```js
+const form = document.forms.example; // Grab form
+const input = form.elements.myInput; // Grab input
+
+// 1. Properties that are useful -----------------
+console.dir(input);
+// set
+input.value = "Goodbye";
+// input.readOnly = true;
+// input.disabled = true;
+
+// get
+console.log(input.value);
+
+// 2. Events
+// other events: cut, copy and paste
+input.addEventListener("focus", () => console.log("Focus"));
+input.addEventListener("blur", () => console.log("Blur"));
+input.addEventListener("input", () => console.log("Input"));
+input.addEventListener("change", () => console.log("Change"));
+
+// 3. Methods
+// focus an input
+input.focus();
+setTimeout(() => input.blur(), 2500);
+```
+
+# Handling Radio Input Elements
+
+```js
+<form name="example">
+    <div class="container">
+      <label>
+        Blue
+        <input type="radio" name="color" value="blue">
+      </label>
+      <label>
+        Red
+        <input type="radio" name="color" value="red" checked>
+      </label>
+      <label>
+        Green
+        <input type="radio" name="color" value="green">
+      </label>
+    </div>
+  </form>
+;
+```
+
+```js
+const form = document.forms.example;
+const radios = Array.from(form.elements.color); // Grab all radios and save to array
+
+// 1. Properties that are useful
+radios[2].checked = true;
+radios.forEach((radio) => {
+  console.log(radio.value);
+  console.log(radio.checked);
+});
+
+// 2. Events
+const container = form.querySelector(".container");
+
+container.addEventListener("change", () => {
+  // const checked = radios.find(radio => radio.checked).value;
+  // console.log(checked);
+  console.log(form.elements.color.value);
+});
+
+// 3. Methods
+radios[2].select();
+```
+
+# Handling Checkbox Input Elements
+
+```html
+<form name="example">
+  <label>
+    Marketing
+    <input type="checkbox" name="marketing" />
+  </label>
+</form>
+```
+
+```js
+const form = document.forms.example;
+const checkbox = from.elements.marketing;
+
+// Properties that are useful
+console.dir(checkbox);
+
+// Set
+checkbox.checked = true;
+
+// Events - Mostly use `change`
+checkbox.addEventListener("change", () => {});
+
+// Methods
+checkbox.select();
+```
+
+# Handling Select Elements
+
+```html
+<form name="example">
+  <select name="drink">
+    <option value="">Select you drink</option>
+    <option value="lemonade">Lemonade</option>
+    <option value="cola">Cola</option>
+    <option value="water">Water</option>
+  </select>
+</form>
+```
+
+```js
+const form = document.forms.example;
+const select = form.elements.drink;
+
+// 1. Grab/see the value of the selected item
+console.log(select.value);
+
+// 2. Set
+select.value = "water";
+
+// 3. Selected index
+console.log(select.selectedIndex);
+
+// 4. Selected DOM Element
+console.log(select.options[select.selectedIndex]);
+
+// 5. Events - change
+
+// 6. Add new <option>
+const option = document.createElement("option");
+option.value = "milk";
+option.text = "Milk";
+
+select.add(option, 1); // The 2nd argument being the index to inject the new element
+```
