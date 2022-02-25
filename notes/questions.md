@@ -63,3 +63,15 @@ function myFunc(n) {
   return myFunc(n - 1); // recursive step
 }
 ```
+
+---
+
+**`This`**
+
+`This` refers to the current object/function it is being called on and not to the object/class it was defined in.
+
+This allows dynamic values to be used for each new instance.
+
+If `this` has no scope value when it is called it will refer to the global object
+
+---
