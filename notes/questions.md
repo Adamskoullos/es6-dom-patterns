@@ -4,6 +4,10 @@
 
 ---
 
+**`Function vs Lambda`**
+
+---
+
 **`Scoping and Hoisting`**
 
 - `Var` within a function has a function scope, otherwise it is available within the global scope
