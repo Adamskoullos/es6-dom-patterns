@@ -4,6 +4,7 @@
 - [CSS Calc](#CSS-Calc)
 - [Media Queries](#Media-Queries)
 - [CSS Selectors](#CSS-Selectors)
+- [Class](#Class)
 
 ---
 
@@ -86,5 +87,57 @@ Psuedo Classes (`state`):
 ```scss
 .element:hover {
   // some styling
+}
+```
+
+---
+
+### Class
+
+```js
+class Cart {
+  items;
+  // Freeze on the way in
+  constructor(items = []) {
+    this.items = Object.freeze(items);
+  }
+  // Freeze on update
+  add(item) {
+    const state = [...this.items, item];
+    this.items = Object.freeze(state);
+  }
+  remove(id) {
+    const state = this.items.filter((item) => item.id !== id);
+    this.items = Object.freeze(state);
+  }
+}
+```
+
+Setters and Getters:
+
+```js
+class Cart {
+  // Properties
+  #items;
+
+  constructor(items = []) {
+    this.value = items;
+  }
+  // Setter = freeze on the way in
+  set value(items) {
+    this.#items = Object.freeze(items);
+  }
+
+  // Getter = freeze on the way out
+  get value() {
+    return Object.freeze(this.#items);
+  }
+  // Methods
+  add(item) {
+    this.value = [...this.value, item];
+  }
+  remove(i) {
+    this.value = this.value.filter((item) => item !== i);
+  }
 }
 ```
