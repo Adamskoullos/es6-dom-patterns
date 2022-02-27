@@ -1,10 +1,19 @@
 ## Cheatsheet
 
+- [Cloning](#Cloning)
 - [HTML5](#HTML5)
 - [CSS Calc](#CSS-Calc)
 - [Media Queries](#Media-Queries)
 - [CSS Selectors](#CSS-Selectors)
 - [Class](#Class)
+
+---
+
+### Cloning
+
+1. Use `spreading` Immutable for shallow cloning
+2. use `Object.Assign({}, item)` > But mutates nested data
+3. Deep clone with `const newData = JSON.parse(JSON.stringify(data))` > does not clone `functions`
 
 ---
 
