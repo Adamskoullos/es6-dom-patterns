@@ -1,5 +1,3 @@
-## Questions
-
 - [Cloning](#Cloning)
 - [HTML5](#HTML5)
 - [CSS Calc](#CSS-Calc)
@@ -157,15 +155,15 @@ class Cart {
 
 ---
 
-**`Event Loop`**
+### Event Loop
 
 ---
 
-**`Function vs Lambda`**
+### Function vs Lambda
 
 ---
 
-**`Scoping and Hoisting`**
+### Scoping and Hoisting
 
 - `Var` within a function has a function scope, otherwise it is available within the global scope
 - `let` and `const` have block scope whe within the functions parenthesis
@@ -176,7 +174,7 @@ class Cart {
 
 ---
 
-**`Primitive vs Reference Data Types`**
+### Primitive vs Reference Data Types
 
 - `Primitive` values are immutable and shared by copy
 - `Reference` values are mutable and shared by reference
@@ -201,7 +199,7 @@ class Cart {
 
 ---
 
-**`Closure`**
+### Closure
 
 Data accessible within a functions parent scope (closure scope) when defined which is also used within the function is accessible thereafter every time the function is invoked.
 
@@ -211,7 +209,7 @@ The data referenced within the function at the time the function is invoked refe
 
 ---
 
-**`Recursion`**
+### Recursion
 
 Recursive functions need to have the bellow core pattern:
 
@@ -227,7 +225,7 @@ function myFunc(n) {
 
 ---
 
-**`This`**
+### This
 
 `This` refers to the current object/function it is being called on and not to the object/class it was defined in.
 
